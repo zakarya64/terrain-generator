@@ -23,7 +23,7 @@ public:
 private:
     std::vector<Vertex> vertices;
     std::vector<unsigned int> indices;
-    FastNoiseLite noise;  // Perlin noise generator
+    FastNoiseLite noise;  
 };
 
 #endif // TERRAIN_H
