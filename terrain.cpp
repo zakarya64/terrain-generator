@@ -38,7 +38,6 @@ void Terrain::generateTerrain(int width, int depth, float scale, float heightSca
         }
     }
 
-    // Compute vertex normals
     for (size_t i = 0; i < indices.size(); i += 3) {
         Vertex &v0 = vertices[indices[i]];
         Vertex &v1 = vertices[indices[i + 1]];
