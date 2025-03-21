@@ -53,7 +53,6 @@ void Terrain::generateTerrain(int width, int depth, float scale, float heightSca
         v2.nx += normal.x(); v2.ny += normal.y(); v2.nz += normal.z();
     }
 
-    // Normalize all normals
     for (auto &v : vertices) {
         QVector3D n(v.nx, v.ny, v.nz);
         n.normalize();
