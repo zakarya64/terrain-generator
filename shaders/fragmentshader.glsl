@@ -6,9 +6,9 @@ in vec2 TexCoord;
 
 out vec4 FragColor;
 
-uniform vec3 lightDir;    // Directional light direction
-uniform vec3 lightColor;  // Light color
-uniform vec3 viewPos;     // Camera position
+uniform vec3 lightDir;   
+uniform vec3 lightColor;  
+uniform vec3 viewPos;    
 
 void main() {
     vec3 norm = normalize(Normal);
