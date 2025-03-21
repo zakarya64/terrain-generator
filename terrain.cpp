@@ -2,7 +2,7 @@
 #include <cmath>
 
 Terrain::Terrain() {
-    noise.SetNoiseType(FastNoiseLite::NoiseType_Perlin);  // Use Perlin noise
+    noise.SetNoiseType(FastNoiseLite::NoiseType_Perlin);  
     noise.SetFrequency(0.05f);
 }
 
@@ -16,13 +16,12 @@ void Terrain::generateTerrain(int width, int depth, float scale, float heightSca
 
             vertices.push_back({
                 float(x), y, float(z),  
-                0, 1, 0,  // Placeholder normal
+                0, 1, 0, 
                 float(x) / width, float(z) / depth
             });
         }
     }
 
-    // Generate indices for rendering triangles
     for (int z = 0; z < depth - 1; ++z) {
         for (int x = 0; x < width - 1; ++x) {
             int topLeft = z * width + x;
