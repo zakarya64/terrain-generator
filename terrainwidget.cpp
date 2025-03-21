@@ -5,16 +5,16 @@
 #include <QHBoxLayout>
 
 TerrainWidget::TerrainWidget(QWidget *parent) : QOpenGLWidget(parent) {
-    // UI Controls for adjusting Perlin Noise parameters
+
     QWidget *controlsWidget = new QWidget(this);
     layout = new QVBoxLayout(controlsWidget);
 
     freqSlider = new QSlider(Qt::Horizontal);
-    freqSlider->setRange(1, 100);  // Scale factor (1 = 0.01, 100 = 1.0)
+    freqSlider->setRange(1, 100);  
     freqSlider->setValue(int(frequency * 100));
 
     heightSlider = new QSlider(Qt::Horizontal);
-    heightSlider->setRange(1, 100);  // Height range (1 - 10)
+    heightSlider->setRange(1, 100); 
     heightSlider->setValue(int(heightScale));
 
     layout->addWidget(freqSlider);
@@ -58,7 +58,7 @@ void TerrainWidget::paintGL() {
     shaderProgram.setUniformValue("view", view);
     shaderProgram.setUniformValue("projection", projection);
 
-    // Set lighting uniforms
+    
     shaderProgram.setUniformValue("lightDir", QVector3D(-0.2f, -1.0f, -0.3f));
     shaderProgram.setUniformValue("lightColor", QVector3D(1.0f, 1.0f, 1.0f));
     shaderProgram.setUniformValue("viewPos", QVector3D(0.0f, 10.0f, 20.0f));
@@ -74,7 +74,7 @@ void TerrainWidget::resizeGL(int w, int h) {
     glViewport(0, 0, w, h);
 }
 
-// Real-time update methods
+
 void TerrainWidget::updateFrequency(int value) {
     frequency = float(value) / 100.0f;
     terrain.generateTerrain(50, 50, frequency, heightScale);
